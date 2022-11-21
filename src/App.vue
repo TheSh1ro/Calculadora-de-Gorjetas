@@ -10,7 +10,30 @@ export default {
 </script>
 <template>
   <header id="header"><h1>Calculadora de Gorjeta</h1></header>
-  <main id="main">Oi</main>
+  <main id="main">
+    <div class="div-forms">
+      <div class="form-area">
+        <section class="form">
+          <p>Avaliação</p>
+          <select class="calculadora">
+            <option value="5">Péssimo</option>
+            <option value="10">Ruim</option>
+            <option value="15">Ok</option>
+            <option value="20">Bom</option>
+            <option value="25">Ótimo</option>
+            <option value="30">Excelente</option>
+          </select>
+        </section>
+        <section class="form">
+          <p>Pagantes</p>
+          <input type="number" placeholder="Quantidade" />
+        </section>
+      </div>
+      <div class="form-result">
+        <h1>Valor por pessoa: R$5,00</h1>
+      </div>
+    </div>
+  </main>
 </template>
 <style>
 * {
@@ -20,7 +43,7 @@ export default {
 #app {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 8vh 1fr;
+  grid-template-rows: 8vh 92vh;
 }
 #header {
   background: linear-gradient(
@@ -32,14 +55,51 @@ export default {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 #main {
+  display: flex;
+  justify-content: center;
+  padding: 5vh;
+
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 1) 0%,
     rgba(45, 45, 45, 1) 100%
   );
+  color: white;
+}
+.div-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10vh;
+  padding: 5vh;
+  height: fit-content;
+  border: 2px ridge white;
+  border-block: none;
+}
+.form-area {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 
-  min-height: 92vh;
+  font-size: 1.5rem;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-result {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: rgb(97, 255, 97);
+}
+input,
+select {
+  text-align: center;
+  padding: 5px;
 }
 </style>
