@@ -2,10 +2,11 @@
 export default {
   data() {
     return {
-      gorjeta: "",
+      valorConta: 100,
+      gorjeta: 10,
+      numPessoas: 1,
     };
   },
-  methods: {},
 };
 </script>
 <template>
@@ -14,8 +15,16 @@ export default {
     <div class="div-forms">
       <div class="form-area">
         <section class="form">
+          <p>Valor da conta</p>
+          <input type="number" placeholder="Valor" v-model="valorConta" />
+        </section>
+        <section class="form">
+          <p>Pagantes</p>
+          <input type="number" placeholder="Quantidade" v-model="numPessoas" />
+        </section>
+        <section class="form">
           <p>Avaliação</p>
-          <select class="calculadora">
+          <select class="feedback" v-model="gorjeta">
             <option value="5">Péssimo</option>
             <option value="10">Ruim</option>
             <option value="15">Ok</option>
@@ -24,13 +33,15 @@ export default {
             <option value="30">Excelente</option>
           </select>
         </section>
-        <section class="form">
-          <p>Pagantes</p>
-          <input type="number" placeholder="Quantidade" />
-        </section>
       </div>
       <div class="form-result">
-        <h1>Valor por pessoa: R$5,00</h1>
+        <h1>
+          Valor por pessoa:
+          {{ this.valorConta }}
+        </h1>
+        <p>Conta: {{ this.valorConta }}</p>
+        <p>Gorjeta: {{ this.gorjeta }}%</p>
+        <p>Pessoas: {{ this.numPessoas }}</p>
       </div>
     </div>
   </main>
@@ -93,7 +104,7 @@ export default {
 }
 .form-result {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   color: rgb(97, 255, 97);
 }
