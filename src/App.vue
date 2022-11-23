@@ -2,8 +2,8 @@
 export default {
   data() {
     return {
-      valorConta: 100,
-      gorjeta: 10,
+      valorConta: 0,
+      gorjeta: 20,
       numPessoas: 1,
     };
   },
@@ -36,12 +36,16 @@ export default {
       </div>
       <div class="form-result">
         <h1>
-          Valor por pessoa:
-          {{ this.valorConta }}
+          Valor por pessoa: R${{
+            (this.valorConta + (this.gorjeta / 100) * this.valorConta) /
+            this.numPessoas
+          }}
         </h1>
-        <p>Conta: {{ this.valorConta }}</p>
-        <p>Gorjeta: {{ this.gorjeta }}%</p>
-        <p>Pessoas: {{ this.numPessoas }}</p>
+        <p class="gorjeta">
+          Gorjeta: R${{ (this.gorjeta * this.valorConta) / 100 }} ({{
+            this.gorjeta
+          }}%)
+        </p>
       </div>
     </div>
   </main>
@@ -112,5 +116,8 @@ input,
 select {
   text-align: center;
   padding: 5px;
+}
+.gorjeta {
+  color: rgb(82, 192, 255);
 }
 </style>
